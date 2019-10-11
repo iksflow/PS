@@ -7,6 +7,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 		List<List<String>> tmp = new ArrayList<List<String>>();
 	      
 	       List<String> ttt = new ArrayList<String>();
@@ -90,6 +91,19 @@ public class Test {
 	       ttt.add("the");      
 	       tmp.add(ttt);
 	       countSort(tmp);
+		
+	}
+	
+	public static int introTutorial(int V, int[] arr) {
+		int answer = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (V == arr[i]) {
+				answer = i;
+				break;
+			}
+		}
+		
+		return answer;
 	}
 	public static void countSort(List<List<String>> arr) {
 		for (int i = 0; i < arr.size()/2; i++) {
