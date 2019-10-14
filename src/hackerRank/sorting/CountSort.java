@@ -1,9 +1,9 @@
-package hackerRank;
+package hackerRank.sorting;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class CountSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
