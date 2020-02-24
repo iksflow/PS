@@ -1,4 +1,4 @@
-package hackerRank;
+package hackerrank;
 
 public class WordCompression {
 

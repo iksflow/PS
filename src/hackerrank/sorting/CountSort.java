@@ -1,4 +1,4 @@
-package hackerRank.sorting;
+package hackerrank.sorting;
 
 import java.util.ArrayList;
 import java.util.List;

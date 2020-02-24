@@ -1,4 +1,4 @@
-package hackerRank.sorting;
+package hackerrank.sorting;
 
 public class InsertionSort1 {
 
