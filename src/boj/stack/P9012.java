@@ -16,7 +16,7 @@ public class P9012 {
 		Scanner sc = new Scanner(System.in);
 		int numOfInput = sc.nextInt();
 		sc.nextLine();
-		for(int i = 0; i < numOfInput; i++) {
+		for (int i = 0; i < numOfInput; i++) {
 			System.out.println(solution(sc.nextLine()));
 		}
 		sc.close();
@@ -25,11 +25,11 @@ public class P9012 {
 	public static String solution(String ps) {
 		String result = "";
 		Stack<Character> stack = new Stack<>();
-		for(int i = 0; i < ps.length(); i++) {
+		for (int i = 0; i < ps.length(); i++) {
 			char word = ps.charAt(i);
 			if (word == '(') {
 				stack.push(word);
-			} else if(word == ')') {
+			} else if (word == ')') {
 				if (0 < stack.size()) {
 					stack.pop();	
 				} else {
