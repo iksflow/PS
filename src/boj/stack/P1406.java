@@ -1,5 +1,7 @@
 package boj.stack;
 
+import java.util.Scanner;
+
 /**
  * @Date		: 2020. 02. 26.
  * @Problem Type: Stack
@@ -10,10 +12,11 @@ package boj.stack;
 public class P1406 {
 
 	public static void main(String[] args) {
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.println(solution(sc.nextLine()));
 	}
 	
-	public static String solution() {
+	public static String solution(String str) {
 		StringBuilder result = new StringBuilder();
 		return result.toString();
 	}
