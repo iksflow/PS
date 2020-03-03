@@ -1,4 +1,4 @@
-package boj.solving;
+package boj.queue;
 
 import java.io.BufferedReader;
 import java.io.IOException;
