@@ -1,7 +1,8 @@
 package boj.dp;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
 
 /**
  * @Date		: 2020. 3. 3.
@@ -13,12 +14,12 @@ import java.util.Scanner;
 public class P1463 {
 
 	public static void main(String[] args) throws IOException {
-//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//		int num = Integer.parseInt(br.readLine());
-//		System.out.println(solution(num));
-		Scanner sc = new Scanner(System.in);
-		int num = sc.nextInt();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int num = Integer.parseInt(br.readLine());
 		System.out.println(solution(num));
+//		Scanner sc = new Scanner(System.in);
+//		int num = sc.nextInt();
+//		System.out.println(solution(num));
 	}
 	
 	public static int solution(int n) {
