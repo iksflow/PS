@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int num = Integer.parseInt(br.readLine());
-		int[] d = new int[200011];
+		int[] d = new int[num + 1];
 		System.out.println(solution(num, d));
 	}
 	
