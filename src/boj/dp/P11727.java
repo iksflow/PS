@@ -16,7 +16,7 @@ public class P11727 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int num = Integer.parseInt(br.readLine());
-		int[] d = new int[num + 2];
+		int[] d = new int[1002];
 		System.out.println(solution(num, d));
 	}
 	/* 2×n 직사각형을 2×1(가로, 세로)과 2×2 타일로 채우는 방법의 수를 구하는 프로그램을 작성하시오.
@@ -33,8 +33,12 @@ public class P11727 {
 		if (n < 3) {
 			return d[n];
 		}
-		d[n] = solution(n - 1, d) + solution(n - 2, d) + solution(n - 2, d);
-		result = d[n] % 10007;
+		if (d[n] > 0) {
+			return d[n];
+		}
+		d[n] = solution(n - 1, d) + (solution(n - 2, d) * 2) ;
+		d[n] = d[n] % 10007;
+		result = d[n];
 		return result;
 	}
 }
