@@ -1,4 +1,4 @@
-package programmers.SkillCheck;
+package programmers.skillcheck;
 
 /**
  * @author : pro

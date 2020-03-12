@@ -1,4 +1,4 @@
-package programmers.SkillCheck;
+package programmers.skillcheck;
 
 import java.time.LocalDate;
 
