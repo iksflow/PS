@@ -8,32 +8,35 @@ package leetcode;
 public class P0014 {
 
     public static void main(String[] args) {
-        String s1 = "eeeeabc";
-        String s2 = "beeeecd";
-        String s3 = "bceee";
-        String[] arr = {s1, s2, s3};
+        String s1 = "aa";
+        String s2 = "a";
+        String[] arr = {s1, s2};
 
         System.out.println(longestCommonPrefix(arr));
 //        s1.
     }
 
     public static String longestCommonPrefix(String[] strs) {
-        return "";
-    }
-
-    public static String longestDupString(String s1, String s2) {
         String result = "";
-        char[] s1Arr = s1.toCharArray();
-        char[] s2Arr = s2.toCharArray();
-        for (int i = 0; i < s1Arr.length; i++) {
-            boolean hit = false;
-            for (int j = 0; j < s2Arr.length; j++) {
-                if (s1Arr[i] == s2Arr[j]) {
-
+        if (strs.length == 0) {
+            return "";
+        }
+        char[] compareArr = strs[0].toCharArray();
+        for (int i = 0; i < compareArr.length; i++) {
+            boolean hit = true;
+            for (int j = 1; j < strs.length; j++) {
+                if (i == strs[j].length() || compareArr[i] != strs[j].charAt(i)) {
+                    hit = false;
+                    break;
                 }
             }
+            if (hit) {
+                result += compareArr[i];
+            } else {
+                break;
+            }
         }
-
         return result;
     }
+
 }
