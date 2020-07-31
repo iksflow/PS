@@ -4,30 +4,37 @@ import java.util.Stack;
 
 public class P1021 {
     public static void main(String[] args) {
-
+        System.out.println(removeOuterParentheses("(()())(())(()(()))"));
 
     }
 
-    public String removeOuterParentheses(String S) {
+    public static String removeOuterParentheses(String S) {
+        StringBuilder sb = new StringBuilder();
         Stack<Character> stack = new Stack<>();
         int[] arr = new int[S.length()];
-        int lcount = 0;
-        int rcount = 0;
+
         for (int i = 0 ; i < S.length(); i++) {
             if (S.charAt(i) == '(') {
-                if (0 < lcount) {
-
-                } else {
-                    lcount++;
+                if (stack.empty()) {
+                    arr[i] = 1;
                 }
-
+                stack.push(S.charAt(i));
             }
             if (S.charAt(i) == ')') {
-//                count--;
+                stack.pop();
+                if (stack.empty()) {
+                    arr[i] = 1;
+                }
+            }
+        }
+
+        for (int i = 0; i < S.length(); i++) {
+            if (arr[i] != 1) {
+                sb.append(S.charAt(i));
             }
 
         }
 
-        return "";
+        return sb.toString();
     }
 }
