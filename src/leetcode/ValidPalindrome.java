@@ -11,7 +11,7 @@ public class ValidPalindrome {
     }
 
     public static boolean isPalindrome(String s) {
-        String raw = s.replaceAll("^[^x00-x7F]+$", "").toLowerCase();
+        String raw = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         System.out.println(raw);
         int index = ((raw.length() & 1) == 1) ? raw.length()/2 + 1 : raw.length()/2;
         if (raw.equals("") == false) {
