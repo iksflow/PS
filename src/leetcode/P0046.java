@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,44 +8,71 @@ import java.util.stream.Collectors;
 
 public class P0046 {
     public static void main(String[] args) {
-        int[] num = {1, 2, 3, 4};
-        int[] num2 = next_permutation2(num);
-        int[] num3 = next_permutation2(num2);
-
-        System.out.println(Arrays.toString(num));
-        System.out.println(Arrays.toString(num2));
-        System.out.println(Arrays.toString(num3));
-
-//        int[] num2 = next_permutation2(num);
-//        int[] num3 = next_permutation2(num2);
-//        System.out.println(Arrays.toString(next_permutation3(num)));
+        int[] num = {1, 2, 3};
+        int[] num2 = {1, 5, 4, 3, 2};
+        int[] num3 = {0, -1, 1};
+        int[] lastNum = {5, 4, 3, 2, 1};
 //        System.out.println(Arrays.toString(num));
-//        System.out.println(Arrays.toString(num2));
-//        System.out.println(Arrays.toString(num3));
+//        System.out.println(Arrays.toString(next_permutation(num)));
+//        System.out.println(hasNext(num2));
+//        System.out.println(hasNext(lastNum));
+        permute2(num);
+//        for (List<Integer> l : permute2(num)) {
+//            System.out.println(Arrays.toString(l.toArray()));
+//        }
+
     }
 
 
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        return res;
+        Arrays.sort(nums);
+        res.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+        while (hasNext(nums)) {
+            nums = next_permutation(nums);
+            res.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
 
+        }
+        return res;
     }
-    public static int[] next_permutation2(int[] a) {
-        int[] res = Arrays.copyOf(a, a.length);
-        int i = res.length - 2;
-        while(i > 0 && res[i] > res[i + 1]) {
+
+    public static boolean hasNext(int[] a) {
+        int i = a.length - 2;
+        while(i >= 0 && a[i] > a[i + 1]) {
             i--;
         }
 
-        int j = a.length - 1;
+        if (i < 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static int[] next_permutation(int[] a) {
+        int[] res = Arrays.copyOf(a, a.length);
+        int i = res.length - 2;
+        while(i >= 0 && res[i] > res[i + 1]) {
+            i--;
+        }
+
+        if (i < 0) {
+            return a;
+        }
+
+        int j = res.length - 1;
         while(i < j && res[i] > res[j]) {
             j--;
         }
         swap(res, i, j);
 
-        while(i < res.length - 2) {
+        j = res.length - 1;
+        while(i < j) {
             int temp = res[i + 1];
-            res[i + 1] = res[i + 2];
+            res[i + 1] = res[j];
+            res[j] = temp;
+            j--;
+            i++;
         }
 
         return res;
@@ -56,64 +84,30 @@ public class P0046 {
         arr[i2] = temp;
     }
 
-//    public static List<Integer> next_permutation(int[] a) {
-//        int i = a.length - 1;
-//        while (i > 0 && a[i-1] >= a[i]) {
-//            i--;
-//        }
-//
-//        if (i <= 0) {
-//            return Arrays.stream(a).boxed().collect(Collectors.toList());
-//        }
-//
-//        int j = a.length - 1;
-//        while (a[j] <= a[i-1]) {
-//            j -= 1;
-//        }
-//
-//        int temp = a[i-1];
-//        a[i-1] = a[j];
-//        a[j] = temp;
-//
-//        j = a.length - 1;
-//        while (i < j) {
-//            temp = a[i];
-//            a[i] = a[j];
-//            a[j] = temp;
-//            i += 1;
-//            j -= 1;
-//        }
-//
-//        return Arrays.stream(a).boxed().collect(Collectors.toList());
-//    }
-    public static int[] next_permutation3(int[] a) {
-        int i = a.length - 1;
-        while (i > 0 && a[i-1] >= a[i]) {
-            i--;
-        }
 
-        if (i <= 0) {
-            return a;
-        }
-
-        int j = a.length - 1;
-        while (a[j] <= a[i-1]) {
-            j -= 1;
-        }
-
-        int temp = a[i-1];
-        a[i-1] = a[j];
-        a[j] = temp;
-        j = a.length - 1;
-
-        while (i < j) {
-            temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
-            i += 1;
-            j -= 1;
-        }
-
-        return a;
+    public static List<List<Integer>> permute2(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(nums == null || nums.length == 0) return res;
+        backtrack(nums,res,new ArrayList<>(), 0);
+        return res;
     }
+
+    public static void backtrack(int[] nums, List<List<Integer>> list, List<Integer> temp, int length) {
+
+        if (length == nums.length) {
+            list.add(new ArrayList<>(temp));
+            System.out.println("PUSH: " + temp);
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if(temp.contains(nums[i])) continue;
+            temp.add(nums[i]);
+            System.out.println("ADD: " + temp);
+            backtrack(nums, list, temp, length+1);
+            temp.remove(temp.size() - 1);
+            System.out.println("REMOVE: " + temp);
+        }
+    }
+
 }
