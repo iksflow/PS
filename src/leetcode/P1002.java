@@ -6,29 +6,33 @@ import java.util.List;
 
 public class P1002 {
     public static void main(String[] args) {
-        String[] str = {"bella","label","roller"};
+        String[] str = {"cool","lock","cook"};
         String s1 = "bella";
         String s2 = "ale";
-        System.out.println(sameChars(s1, s2));
+        System.out.println(commonChars(str));
     }
 
 
     public static List<String> commonChars(String[] A) {
         List<String> res = new ArrayList<>();
-        StringBuilder temp = new StringBuilder();
+        if (A.length == 1) {
+            return res;
+        }
         String head = A[0];
-        for (int i = 1; i < A.length; i++) {
+        String temp = A[1];
+        String common = sameChars(head, temp);
+        for (int i = 2; i < A.length; i++) {
             String target = A[i];
-            String same = sameChars(head, target);
-            if (head.length() > same.length()) {
-                head = same;
+            String same = sameChars(common, target);
+            if (common.length() > same.length()) {
+                common = same;
             }
 
         }
-        for (char c : head.toCharArray()) {
-//            res.add(new String(c));
+        for (char c : common.toCharArray()) {
+            res.add("" + c);
         }
-        return null;
+        return res;
     }
 
     public static String sameChars(String s1, String s2) {
