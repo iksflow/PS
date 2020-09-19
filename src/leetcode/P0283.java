@@ -1,6 +1,5 @@
 package leetcode;
 
-import sun.awt.windows.WPrinterJob;
 
 import java.util.Arrays;
 
