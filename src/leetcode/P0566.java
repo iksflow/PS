@@ -1,11 +1,17 @@
 package leetcode;
 
+import java.util.Arrays;
+
 public class P0566 {
     public static void main(String[] args) {
-
+        int[][] nums = {{1,2}, {3,4}};
+        int[][] res = matrixReshape(nums, 1, 4);
+        for (int i = 0; i < res.length; i++) {
+            System.out.println(Arrays.toString(res[i]));
+        }
     }
 
-    public int[][] matrixReshape(int[][] nums, int r, int c) {
+    public static int[][] matrixReshape(int[][] nums, int r, int c) {
         int numsLen = 0;
         int[] numsArr = new int[r * c];
         for (int i = 0; i < nums.length; i++) {
@@ -18,10 +24,13 @@ public class P0566 {
             return nums;
         }
         int[][] res = new int[r][c];
-        for (int i = 0; i < numsArr.length; i++) {
-//            numsArr[i];
-
+        int index = 0;
+        for (int j = 0; j < r; j++) {
+            for (int k = 0; k < c; k++) {
+                res[j][k] = numsArr[index];
+                index++;
+            }
         }
-        return null;
+        return res;
     }
 }
