@@ -2,8 +2,8 @@ package leetcode;
 
 public class P0702 {
     public static void main(String[] args) {
-        int[] nums = {2, 5};
-        int target = 2;
+        int[] nums = {-1,0,3,5,9,12};
+        int target = 3;
         System.out.println(search(nums, target));
     }
 
@@ -11,20 +11,33 @@ public class P0702 {
         if (nums.length == 1) {
             return (nums[0] == target) ? 0 : -1;
         }
-
         int res = -1;
-        int gap = nums.length / 2;
-        int idx = gap;
-        while (gap != 0) {
-            gap /= 2;
-            if (nums[idx] == target) {
-                res = idx;
-            } else if (nums[idx] < target) {
-                idx += gap;
+        int start = 0;
+        int end = nums.length - 1;
+        int gap = end / 2;
+        if (nums[start] == target) {
+            return start;
+        }
+        if (nums[end] == target) {
+            return end;
+        }
+
+        while (start != end) {
+            if (gap == 0) {
+                break;
+            }
+            if (nums[start + gap] < target) {
+                start += gap;
+                gap = (end - start) / 2;
+            } else if (target < nums[start + gap]) {
+                end -= gap;
+                gap = (end - start) / 2;
             } else {
-                idx -= gap;
+                res = start + gap;
+                break;
             }
         }
+
         return res;
     }
 
