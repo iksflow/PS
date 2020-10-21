@@ -6,6 +6,10 @@ public class P0796 {
     }
     // using que
     public boolean rotateString(String A, String B) {
+        if (A.length() != B.length()) {
+            return false;
+        }
+//        A.
         return false;
     }
 }
