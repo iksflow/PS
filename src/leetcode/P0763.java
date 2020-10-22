@@ -1,10 +1,11 @@
 package leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class P0763 {
     public static void main(String[] args) {
-
+        System.out.println(partitionLabels("ababcbacadefegdehijhklij"));
     }
     /*
     * start가 -1 이면 현재 인덱스를 새로운 시작인덱스로 설정한다.
@@ -14,25 +15,37 @@ public class P0763 {
     * newEnd가 탄생하지 않고 현재인덱스가 end에 도달하면 부분문자열이다.
     * */
     public static List<Integer> partitionLabels(String s) {
+        List<Integer> res = new ArrayList<>();
         int len = s.length();
         char[] str = s.toCharArray();
         int start = -1;
         int end = -1;
+        int newEnd = -1;
+        char currentChar = ' ';
         for (int i = 0; i < len; i++) {
-            char startChar = '@';
+            if (i == end) {
+                res.add(end - start + 1);
+                start = -1;
+                continue;
+
+            }
             if (start == -1) {
                 start = i;
-                startChar = str[i];
-
-                for (int j = i; j < len; j++) {
-                    if (startChar == str[j]) {
-                        end = j;
-                    }
+            }
+            currentChar = str[i];
+            for (int j = i; j < len; j++) {
+                if (currentChar == str[j]) {
+                    newEnd = j;
                 }
+            }
+            end = Math.max(end, newEnd);
+
+            if (start == end) {
+                res.add(1);
             }
 
 
         }
-        return null;
+        return res;
     }
 }

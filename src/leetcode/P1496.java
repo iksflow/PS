@@ -1,6 +1,5 @@
 package leetcode;
 
-import sun.misc.PostVMInitHook;
 
 public class P1496 {
     public static void main(String[] args) {
