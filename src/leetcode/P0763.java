@@ -5,7 +5,8 @@ import java.util.List;
 
 public class P0763 {
     public static void main(String[] args) {
-        System.out.println(partitionLabels("ababcbacadefegdehijhklij"));
+        String s = "caedbdedda";
+        System.out.println(partitionLabels(s));
     }
     /*
     * start가 -1 이면 현재 인덱스를 새로운 시작인덱스로 설정한다.
@@ -14,10 +15,10 @@ public class P0763 {
     * 만약 newEnd값이 기존의 end값 보다 큰 경우 newEnd가 새로운 end값이 된다.
     * newEnd가 탄생하지 않고 현재인덱스가 end에 도달하면 부분문자열이다.
     * */
-    public static List<Integer> partitionLabels(String s) {
+    public static List<Integer> partitionLabels(String S) {
         List<Integer> res = new ArrayList<>();
-        int len = s.length();
-        char[] str = s.toCharArray();
+        int len = S.length();
+        char[] str = S.toCharArray();
         int start = -1;
         int end = -1;
         int newEnd = -1;
@@ -26,6 +27,7 @@ public class P0763 {
             if (i == end) {
                 res.add(end - start + 1);
                 start = -1;
+                end = -1;
                 continue;
 
             }
@@ -42,6 +44,7 @@ public class P0763 {
 
             if (start == end) {
                 res.add(1);
+                start = -1;
             }
 
 
