@@ -6,6 +6,12 @@ public class P0807 {
     }
 
     public static int maxIncreaseKeepingSkyline(int[][] grid) {
+
+        for (int[] level : grid) {
+            for (int n : level) {
+
+            }
+        }
         return 0;
     }
 }
