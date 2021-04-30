@@ -20,7 +20,10 @@ public class P1588 {
             int step = arr.length - Math.abs(t - i);
             sum += arr[i] * step;
             System.out.println("current sum: " + arr[i] * step);
+
+
         }
+//        arr.length
         return sum;
     }
 }
