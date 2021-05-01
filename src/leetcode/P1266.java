@@ -5,5 +5,8 @@ public class P1266 {
 
     }
 
+    public static int minTimeToVisitAllPoints(int[][] points) {
+        return 0;
+    }
 
 }
