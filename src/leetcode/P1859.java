@@ -12,12 +12,16 @@ public class P1859 {
         String[] result = new String[strArr.length];
         for (int i = 0; i < strArr.length; i++) {
             int len = strArr[i].length();
-            int idx = strArr[i].charAt(len - 1);
+            int idx = strArr[i].charAt(len - 1) - '0' - 1;
             result[idx] = strArr[i].substring(0, len - 1);
         }
 
-        System.out.println(result.toString());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < result.length; i++) {
+            sb.append(result[i] + " ");
+        }
 
-        return "";
+
+        return sb.toString();
     }
 }
