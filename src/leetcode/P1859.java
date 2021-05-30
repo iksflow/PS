@@ -18,9 +18,11 @@ public class P1859 {
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < result.length; i++) {
-            sb.append(result[i] + " ");
+            sb.append(result[i]);
+            if (i != result.length - 1) {
+                sb.append(" ");
+            }
         }
-
 
         return sb.toString();
     }
