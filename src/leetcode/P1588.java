@@ -19,9 +19,6 @@ public class P1588 {
         for (int i = 0; i < arr.length; i++) {
             int step = arr.length - Math.abs(t - i);
             sum += arr[i] * step;
-            System.out.println("current sum: " + arr[i] * step);
-
-
         }
 //        arr.length
         return sum;
