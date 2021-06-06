@@ -2,6 +2,7 @@ package leetcode;
 
 public class P0338 {
     public static void main(String[] args) {
+        int n = 2;
         System.out.println(5 ^ 0);
     }
 
