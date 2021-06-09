@@ -8,9 +8,15 @@ public class P1863 {
 
     // recursion....
     public static int subsetXORSum(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            int n = nums[i];
+        return backTrace(nums, 0, 0);
+    }
+
+    private static int backTrace(int[] nums, int index, int xorSum) {
+        if(index==nums.length) {
+            return xorSum;
         }
-        return 0;
+
+        return backTrace(nums, index+1, nums[index]^xorSum)
+                +backTrace(nums, index+1, xorSum);
     }
 }
