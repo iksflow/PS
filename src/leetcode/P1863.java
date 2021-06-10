@@ -7,12 +7,17 @@ public class P1863 {
     }
 
     // recursion....
+    // xorSum result
+    // 1: nums[0] 1 ^ 0 = 1
+    // 2: nums[1] 3 ^ 1 = 2
+    //  return 2
+
     public static int subsetXORSum(int[] nums) {
         return backTrace(nums, 0, 0);
     }
 
     private static int backTrace(int[] nums, int index, int xorSum) {
-        if(index==nums.length) {
+        if(index == nums.length) {
             return xorSum;
         }
 
