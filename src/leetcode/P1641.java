@@ -3,6 +3,7 @@ package leetcode;
 public class P1641 {
     public static void main(String[] args) {
         System.out.println(countVowelStrings(2));
+        System.out.println(countVowelStrings(4));
     }
     /*
     * D(1) = 5
